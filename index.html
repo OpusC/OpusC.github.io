@@ -8,38 +8,238 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 		crossorigin="anonymous">
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	<!-- Latest compiled JavaScript -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
+	<style>
+		html { scroll-behavior: smooth; }
+		#hero { padding: 6rem 0 4rem; }
+		.section-pad { padding: 4rem 0; }
+		.project-card { height: 100%; }
+		.tech-badge { font-size: 0.75rem; }
+		.border-top-accent { border-top: 3px solid var(--bs-primary); }
+	</style>
 </head>
 
 <body>
-	<div class="container">
-		<nav class="navbar navbar-expand-lg bg-body-tertiary">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Home</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-					data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"> </span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-					<div class="navbar-nav">
-						<a class="nav-link active" aria-current="page" href="#">Projects</a>
-						<a class="nav-link" href="#">About Me</a>
+
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+		<div class="container">
+			<a class="navbar-brand fw-bold" href="#hero">Jason Callaghan</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+					<li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+					<li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+					<li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Hero -->
+	<section id="hero">
+		<div class="container text-center">
+			<h1 class="display-3 fw-bold mb-3">Jason Callaghan</h1>
+			<p class="lead text-body-secondary mb-4" style="max-width: 640px; margin: 0 auto;">
+				Software developer with professional experience building high-volume distributed systems at Mastercard, with a passion for low-level systems, networking, and technical problem solving.
+			</p>
+			<div class="d-flex justify-content-center gap-3">
+				<a href="https://github.com/OpusC" target="_blank" class="btn btn-outline-light btn-lg">
+					<i class="bi bi-github me-2"></i>GitHub
+				</a>
+				<a href="https://www.linkedin.com/in/jascallaghan/" target="_blank" class="btn btn-primary btn-lg">
+					<i class="bi bi-linkedin me-2"></i>LinkedIn
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Experience -->
+	<section id="experience" class="section-pad bg-body-tertiary">
+		<div class="container">
+			<h2 class="fw-bold mb-4">Experience</h2>
+
+			<div class="card mb-4 border-top-accent">
+				<div class="card-body p-4">
+					<div class="d-flex flex-wrap justify-content-between align-items-start mb-1">
+						<h5 class="card-title mb-0">Software Developer — MasterCard</h5>
+						<span class="text-body-secondary small">July 2025 – March 2026</span>
 					</div>
+					<p class="text-body-secondary small mb-3">Contracted through TekSystems · Vancouver, BC</p>
+					<ul class="mb-0">
+						<li>Developed features on a high-volume disputes resolution platform handling 446M API requests annually.</li>
+						<li>Implemented transaction reversal syncing for dual-message claims to support Mastercard's India dual-message processing using an event-driven listener, blocking disputes when new reversals are detected to prevent invalid chargebacks.</li>
+						<li>Diagnosed a P3 incident caused by a misconfigured circuit breaker rejecting valid requests; traced root cause to a scheduled OS update on the rules engine, reconfigured the circuit breaker, added regression tests, and migrated legacy retry logic to Resilience4j.</li>
+						<li>Improved production observability by correcting timing metrics with a monotonic clock.</li>
+						<li>Eliminated duplicate claims by enabling JPA optimistic locking across concurrent rules engine write paths by replacing direct JPQL updates that bypassed version checks with managed entity persistence.</li>
+					</ul>
 				</div>
 			</div>
-		</nav>
-		<div class="container text-center">
-			<h1>Jason Callaghan</h1>
-			<p>I’m a developer with a year of professional experience at HCLTech, where I contributed to
-				impactful
-				projects as a contractor for Mastercard.
-			</p>
+
+			<div class="card border-top-accent">
+				<div class="card-body p-4">
+					<div class="d-flex flex-wrap justify-content-between align-items-start mb-1">
+						<h5 class="card-title mb-0">Software Developer — MasterCard</h5>
+						<span class="text-body-secondary small">May 2023 – December 2023</span>
+					</div>
+					<p class="text-body-secondary small mb-3">Contracted through HCLTech · Vancouver, BC</p>
+					<ul class="mb-0">
+						<li>Implemented new features in a Spring microservice for the MasterCard Disputes Platform using TDD with Java, JUnit, and Mockito.</li>
+						<li>Used Jenkins to trigger another Jenkins pipeline that was previously run manually, enabling more automated feedback across two related services.</li>
+						<li>Added an automated test suite analytics report using ReportPortal to allow for machine learning analysis of test failures.</li>
+					</ul>
+				</div>
+			</div>
 		</div>
-	</div>
+	</section>
+
+	<!-- Projects -->
+	<section id="projects" class="section-pad">
+		<div class="container">
+			<h2 class="fw-bold mb-4">Projects</h2>
+			<div class="row g-4">
+
+				<div class="col-md-6">
+					<div class="card project-card border-top-accent">
+						<div class="card-body p-4">
+							<h5 class="card-title">D&amp;D Character Sheet App</h5>
+							<div class="mb-3">
+								<span class="badge bg-secondary tech-badge me-1">TypeScript</span>
+								<span class="badge bg-secondary tech-badge me-1">React Native</span>
+								<span class="badge bg-secondary tech-badge me-1">Go</span>
+								<span class="badge bg-secondary tech-badge me-1">JWT</span>
+								<span class="badge bg-secondary tech-badge">AsyncStorage</span>
+							</div>
+							<ul class="card-text mb-0">
+								<li>Cross-platform mobile and web app for managing DND characters with stat tracking and spell slot updates.</li>
+								<li>JWT-based authentication with a Go backend; offline support via AsyncStorage and update queuing.</li>
+								<li>Handled CORS and cross-platform challenges to support browser use via React Native Web.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="card project-card border-top-accent">
+						<div class="card-body p-4">
+							<h5 class="card-title">Reliable Transport Protocol over UDP</h5>
+							<div class="mb-3">
+								<span class="badge bg-secondary tech-badge me-1">C</span>
+								<span class="badge bg-secondary tech-badge">POSIX Sockets</span>
+							</div>
+							<ul class="card-text mb-0">
+								<li>TCP-like reliable transport layer over UDP for UBC's CPSC 317 (Computer Networking).</li>
+								<li>Ring buffer sliding window tracking in-flight bytes against the receiver's advertised window.</li>
+								<li>SYN/FIN handshakes, cumulative ACKs, checksum validation, exponential backoff, and fast retransmit on triple duplicate ACKs.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="card project-card border-top-accent">
+						<div class="card-body p-4">
+							<h5 class="card-title">DNS Lookup Service</h5>
+							<div class="mb-3">
+								<span class="badge bg-secondary tech-badge me-1">Java</span>
+								<span class="badge bg-secondary tech-badge">UDP/TCP Sockets</span>
+							</div>
+							<ul class="card-text mb-0">
+								<li>DNS resolver for UBC's CPSC 317 constructing and parsing DNS wire format messages over UDP.</li>
+								<li>Transaction ID validation, retries with timeout, and automatic TCP fallback on truncated responses.</li>
+								<li>Parsed A, AAAA, NS, CNAME, and MX records from raw bytes; caches results and follows CNAME chains recursively.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="card project-card border-top-accent">
+						<div class="card-body p-4">
+							<h5 class="card-title">GregTech: New Horizons — Open Source</h5>
+							<div class="mb-3">
+								<span class="badge bg-secondary tech-badge">Java</span>
+							</div>
+							<ul class="card-text mb-0">
+								<li>Contributed to a Minecraft modpack with over 1.5M downloads.</li>
+								<li>Replaced a limited custom search bar with NEI's TextField, adding held-key repeat, Ctrl+A select-all, and standard editing behaviour.</li>
+								<li>Extracted an <code>ISearchBar</code> interface to decouple abstraction from implementation; updated Gradle dependency from CodeChickenLib to CodeChickenCore.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Skills -->
+	<section id="skills" class="section-pad bg-body-tertiary">
+		<div class="container">
+			<h2 class="fw-bold mb-4">Technical Skills</h2>
+			<div class="row g-4">
+
+				<div class="col-md-4">
+					<h6 class="text-body-secondary text-uppercase small fw-bold mb-2">Languages</h6>
+					<p>Java, Python, Go, C, C++, HTML/CSS, JavaScript, TypeScript, SQL</p>
+				</div>
+
+				<div class="col-md-4">
+					<h6 class="text-body-secondary text-uppercase small fw-bold mb-2">Frameworks &amp; Technologies</h6>
+					<p>Spring Framework, Kafka, Resilience4j, Hibernate/JPA, React Native, Docker, JWT, OAuth2, Flyway, PostgreSQL, Oracle</p>
+				</div>
+
+				<div class="col-md-4">
+					<h6 class="text-body-secondary text-uppercase small fw-bold mb-2">Developer Tools</h6>
+					<p>IntelliJ IDEA, NeoVim, VS Code, Git/GitHub, Maven, Jenkins, JUnit, Mockito, Splunk</p>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Education -->
+	<section id="education" class="section-pad">
+		<div class="container">
+			<h2 class="fw-bold mb-4">Education</h2>
+			<div class="card border-top-accent">
+				<div class="card-body p-4">
+					<div class="d-flex flex-wrap justify-content-between align-items-start mb-1">
+						<h5 class="card-title mb-0">University of British Columbia</h5>
+						<span class="text-body-secondary small">Graduated August 2025</span>
+					</div>
+					<p class="text-body-secondary mb-2">Bachelor of Arts · Asian Area Studies · Vancouver, BC</p>
+					<p class="mb-0"><span class="fw-semibold">Relevant Courses:</span> Data Structures &amp; Algorithms, Introduction to Computer Systems, Software Construction, Models of Computation, Computer Networking</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-body-tertiary py-4 mt-2">
+		<div class="container text-center text-body-secondary">
+			<div class="d-flex justify-content-center gap-4 mb-2">
+				<a href="https://github.com/OpusC" target="_blank" class="text-body-secondary text-decoration-none">
+					<i class="bi bi-github me-1"></i>github.com/OpusC
+				</a>
+				<a href="https://www.linkedin.com/in/jascallaghan/" target="_blank" class="text-body-secondary text-decoration-none">
+					<i class="bi bi-linkedin me-1"></i>linkedin.com/in/jascallaghan
+				</a>
+				<a href="mailto:jason.d.callaghan@gmail.com" class="text-body-secondary text-decoration-none">
+					<i class="bi bi-envelope me-1"></i>jason.d.callaghan@gmail.com
+				</a>
+			</div>
+			<small>Jason Callaghan</small>
+		</div>
+	</footer>
+
 </body>
+</html>
