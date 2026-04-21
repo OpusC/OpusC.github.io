@@ -77,7 +77,7 @@
 					<ul class="mb-0">
 						<li>Developed features on a high-volume disputes resolution platform handling 446M API requests annually.</li>
 						<li>Implemented transaction reversal syncing for dual-message claims to support Mastercard's India dual-message processing using an event-driven listener, blocking disputes when new reversals are detected to prevent invalid chargebacks.</li>
-						<li>Diagnosed a P3 incident caused by a misconfigured circuit breaker rejecting valid requests; traced root cause to a scheduled OS update on the rules engine, reconfigured the circuit breaker, added regression tests, and migrated legacy retry logic to Resilience4j.</li>
+						<li>Diagnosed an incident caused by a misconfigured circuit breaker rejecting valid requests; traced root cause to a scheduled OS update on the rules engine, reconfigured the circuit breaker, added regression tests, and migrated legacy retry logic to Resilience4j.</li>
 						<li>Improved production observability by correcting timing metrics with a monotonic clock.</li>
 						<li>Eliminated duplicate claims by enabling JPA optimistic locking across concurrent rules engine write paths by replacing direct JPQL updates that bypassed version checks with managed entity persistence.</li>
 					</ul>
